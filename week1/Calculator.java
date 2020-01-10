@@ -59,6 +59,6 @@ public class Calculator {
 	}
 	
 	private static void custom(int a, int b) {
-		System.out.println("커스텀 결과 : " + (float)(a * b)/(a + b));
+		System.out.println("커스텀 결과 : " + (float)(a * b)/(float)(a + b));
 	}
 }
