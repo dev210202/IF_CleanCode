@@ -35,7 +35,7 @@ public class Calculator {
 	}
 
 	private static void divide(int a, int b) {
-		System.out.println("나누기 결과 : " + (float)(a / b));
+		System.out.println("나누기 결과 : " + ((float)a / (float)b));
 	}
 	
 	private static void multiple(int a, int b) {
