@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class ProjectMain {
 
     public static void main(String[] args) {
-        int input1, input2;
+        float input1, input2;
         String operator;
         Scanner sc = new Scanner(System.in);
 
@@ -16,8 +16,8 @@ public class ProjectMain {
 
     }
 
-    static int calculateTwoInteger(int input1, int input2, String operator) {
-        int result = 0;
+    static float calculateTwoInteger(float input1, float input2, String operator) {
+        float result = 0f;
 
         if (operator.equals("+")) {
             result = add(input1, input2);
@@ -28,26 +28,26 @@ public class ProjectMain {
         } else if (operator.equals("/")) {
             result = divide(input1, input2);
         } else if (operator.equals("count")) {
-            result = countMatchingNumbers(input1, input2);
+            result = countMatchingNumbers((int)input1, (int)input2);
         } else if (operator.equals("%")) {
             result = mod(input1, input2);
         }
         return result;
     }
 
-    static int add(int input1, int input2) {
+    static float add(float input1, float input2) {
         return input1 + input2;
     }
 
-    static int substract(int input1, int input2) {
+    static float substract(float input1, float input2) {
         return input1 - input2;
     }
 
-    static int multiply(int input1, int input2) {
+    static float multiply(float input1, float input2) {
         return input1 * input2;
     }
 
-    static int divide(int input1, int input2) {
+    static float divide(float input1, float input2) {
         return input1 / input2;
     }
 
@@ -77,7 +77,7 @@ public class ProjectMain {
     }
 
     // custom - 나머지값 구하기
-    static int mod(int input1, int input2) {
+    static float mod(float input1, float input2) {
         return input1 % input2;
     }
 
