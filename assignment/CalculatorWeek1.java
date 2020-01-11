@@ -14,21 +14,18 @@ public class Calculator
 	
 	public static void main(String[] args) {
 		
+		getOperandAndOperator();
+		resultOfOperation = operate(operand1, operand2, operator);
+		printResult(operator, resultOfOperation);
+		
+	}
+	
+	static void getOperandAndOperator() {
 		System.out.println("값을 두개 입력해 주세요!");
 		scanOperand();
 		
 		System.out.println("연산을 입력해 주세요!");
 		scanOperator();
-		
-		resultOfOperation = operate(operand1, operand2, operator);
-		printResult(operator, resultOfOperation);
-	
-		System.out.println("0이상 9 미만의 숫자 A가 숫자 B에 몇개가 들어있는지 확인하고자 합니다.");
-		System.out.println("A와 B를 순서대로 입력해주세요.");
-		
-		scanOperand();
-		resultOfOperation = findHowManyNumberAIsInNumberB(operand1, operand2);
-		System.out.println("숫자 B가 숫자 A에 " +  String.valueOf(resultOfOperation) + "개 있습니다.");	
 	}
 	
 	static void scanOperand() {
@@ -62,7 +59,11 @@ public class Calculator
 			result = (double)operand1 / operand2;
 			break;
 			
-		case '^' :
+		case '@' : //숫자 A가 숫자 B에 몇개 있는지 확인하는 함수를 호출하는 문자
+			result = findHowManyNumberAIsInNumberB(operand1, operand2);
+			break;
+			
+		case '^' : //A의 B승을 계산하는 함수를 호출하는 문자
 			result = numberAPowerNumberB(operand1, operand2);
 			break;
 			
@@ -92,11 +93,14 @@ public class Calculator
 			case '/' :
 				System.out.println("나누기 결과 : " + String.valueOf(result));
 				break;
+			
+			case '@' :
+				System.out.println("숫자 B가 숫자 A에  " +  String.valueOf((int)resultOfOperation) + "개 있습니다.");
+				break;
 				
 			case '^' :
 				System.out.println("거듭제곱 결과 : " + String.valueOf(result));
 				break;
-		
 		
 			default :
 				break;
@@ -106,11 +110,11 @@ public class Calculator
 	static int findHowManyNumberAIsInNumberB (int numberA, int numberB) {
 		int result = 0;
 		
-		while(numberB > 0) {
-			if(numberB % 10 == numberA) {
+		while(numberA > 0) {
+			if(numberA % 10 == numberB) {
 				result++;	
 			}
-			numberB /= 10;
+			numberA /= 10;
 		}
 		
 		return result;
