@@ -2,7 +2,7 @@ package calculator;
 
 import java.util.Scanner;
 
-public class Calculator
+public class Calculator // 계산기 클래스
 {
 	static int operand1; 
 	static int operand2; 
