@@ -23,7 +23,3 @@
 
 스터디 멤버
 -------------
-주이식  [jkey20](https://github.com/jkey20)  
-강근우  [Moai-Kang](https://github.com/Moai-Kang)  
-김하늬  [kimhanui](https://github.com/kimhanui)  
-이현주  [alro923](https://github.com/alro923)  
