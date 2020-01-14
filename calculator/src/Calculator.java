@@ -67,11 +67,10 @@ public class Calculator {
     }
 
     public static void getCountOfBInA() {
-
+        
+        int A, B;
         int digit = 0;
         int cnt = 0;
-        int B;
-        int A;
         int multiply10digitTimes = 1;
 
         A = firstNum;
