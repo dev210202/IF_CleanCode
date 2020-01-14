@@ -60,36 +60,37 @@ public class Calculator {
     }
 
     public static void divide() {
-        if ((double)firstNum / secondNum == firstNum / secondNum)
+        if ((double) firstNum / secondNum == firstNum / secondNum)
             System.out.println("나누기 결과: " + (firstNum / secondNum));
         else
-            System.out.println("나누기 결과: " + ((double)firstNum / secondNum));
+            System.out.println("나누기 결과: " + ((double) firstNum / secondNum));
     }
 
     public static void getCountOfBInA() {
-        
-        int A, B;
-        int digit = 0;
-        int cnt = 0;
+
+        int A = firstNum;
+        int B = secondNum;
+        int digitOfB = 0;
+        int cntOfBInA = 0;
         int multiply10digitTimes = 1;
 
-        A = firstNum;
-        B = secondNum;
-
         while (B > 0) {
-            digit++;
+            digitOfB++;
             B = B / 10;
         }
-        while (digit > 0) {
+
+        while (digitOfB > 0) {
             multiply10digitTimes = multiply10digitTimes * 10;
-            digit--;
+            digitOfB--;
         }
+
         while (A > 0) {
             if (A % multiply10digitTimes == secondNum)
-                cnt++;
+                cntOfBInA++;
             A = A / 10;
         }
-        System.out.println("카운트 결과: " + cnt);
+
+        System.out.println("카운트 결과: " + cntOfBInA);
     }
 
     public static void isItMultiple() {
