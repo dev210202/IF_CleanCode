@@ -24,60 +24,6 @@ public class Calculator {
         operator = input.next();
     }
 
-    public static void add() {
-        System.out.println("더하기 결과: " + (firstNum + secondNum));
-    }
-
-    public static void subtract() {
-        System.out.println("빼기 결과: " + (firstNum - secondNum));
-    }
-
-    public static void multiply() {
-        System.out.println("곱하기 결과: " + (firstNum * secondNum));
-    }
-
-    public static void divide() {
-        if ((1.0 * firstNum / secondNum) == firstNum / secondNum)
-            System.out.println("나누기 결과: " + (firstNum / secondNum));
-        else
-            System.out.println("나누기 결과: " + (1.0 * firstNum / secondNum));
-    }
-
-    public static void count() {
-
-        int digit = 0;
-        int cnt = 0;
-        int secondNumCopy;
-        int firstNumCopy;
-        int multiply10digitTimes = 1;
-
-        firstNumCopy = firstNum;
-        secondNumCopy = secondNum;
-
-        while (secondNumCopy > 0) {
-            digit++;
-            secondNumCopy = secondNumCopy / 10;
-        }
-        while (digit > 0) {
-            multiply10digitTimes = multiply10digitTimes * 10;
-            digit--;
-        }
-        while (firstNumCopy > 0) {
-            if (firstNumCopy % multiply10digitTimes == secondNum)
-                cnt++;
-            firstNumCopy = firstNumCopy / 10;
-        }
-        System.out.println("카운트 결과: " + cnt);
-    }
-
-    public static void isItMultiple()
-    {
-        if (firstNum%secondNum ==0)
-            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수이다.");
-        else
-            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수가 아니다.");
-    }
-
     public static void printResult() {
         switch (operator) {
             case "+":
@@ -93,12 +39,67 @@ public class Calculator {
                 divide();
                 break;
             case "?":
-                count();
+                getCountOfBInA();
                 break;
             case "@":
                 isItMultiple();
                 break;
         }
     }
+
+    public static void add() {
+        System.out.println("더하기 결과: " + (firstNum + secondNum));
+    }
+
+    public static void subtract() {
+        System.out.println("빼기 결과: " + (firstNum - secondNum));
+    }
+
+    public static void multiply() {
+        System.out.println("곱하기 결과: " + (firstNum * secondNum));
+    }
+
+    public static void divide() {
+        if ((double)firstNum / secondNum == firstNum / secondNum)
+            System.out.println("나누기 결과: " + (firstNum / secondNum));
+        else
+            System.out.println("나누기 결과: " + ((double)firstNum / secondNum));
+    }
+
+    public static void getCountOfBInA() {
+
+        int digit = 0;
+        int cnt = 0;
+        int B;
+        int A;
+        int multiply10digitTimes = 1;
+
+        A = firstNum;
+        B = secondNum;
+
+        while (B > 0) {
+            digit++;
+            B = B / 10;
+        }
+        while (digit > 0) {
+            multiply10digitTimes = multiply10digitTimes * 10;
+            digit--;
+        }
+        while (A > 0) {
+            if (A % multiply10digitTimes == secondNum)
+                cnt++;
+            A = A / 10;
+        }
+        System.out.println("카운트 결과: " + cnt);
+    }
+
+    public static void isItMultiple() {
+        if (firstNum % secondNum == 0)
+            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수이다.");
+        else
+            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수가 아니다.");
+    }
+
+
 }
 
