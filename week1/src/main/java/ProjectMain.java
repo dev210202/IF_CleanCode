@@ -4,19 +4,47 @@ public class ProjectMain {
 
     public static void main(String[] args) {
         float input1, input2;
+
         String operator;
+
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Select Two numbers : ");
         input1 = sc.nextInt();
-        input2 = sc.nextInt();
-        System.out.println("Select Operator : ");
         operator = sc.next();
-        System.out.println("Result is " + calculateTwoInteger(input1, input2, operator));
+        input2 = sc.nextInt();
 
+        calculateAndPrint(input1, input2, operator);
     }
 
-    static float calculateTwoInteger(float input1, float input2, String operator) {
+
+    static void calculateAndPrint(float input1, float input2, String operator) {
+
+        Scanner sc = new Scanner(System.in);
+
+        float res;
+
+        String newOperator = sc.next();
+
+        if (newOperator.equals("=")) {
+            res = calculate(input1, input2, operator);
+            System.out.println(res);
+            calculateAndPrint(input1, input2, operator);
+
+        } else if (newOperator.equals("q")) {
+            System.out.println("Calculation is ended....");
+            return;
+
+        } else {
+            res = calculate(input1, input2, operator);
+            input2 = sc.nextInt();
+            calculateAndPrint(res, input2, newOperator);
+
+        }
+
+        return;
+    }
+
+    static float calculate(float input1, float input2, String operator) {
         float result = 0f;
 
         if (operator.equals("+")) {
@@ -27,8 +55,8 @@ public class ProjectMain {
             result = multiply(input1, input2);
         } else if (operator.equals("/")) {
             result = divide(input1, input2);
-        } else if (operator.equals("count")) {
-            result = countMatchingNumbers((int)input1, (int)input2);
+        } else if (operator.equals("c")) {
+            result = countMatchingNumbers((int) input1, (int) input2);
         } else if (operator.equals("%")) {
             result = mod(input1, input2);
         }
@@ -52,12 +80,12 @@ public class ProjectMain {
     }
 
     static int countMatchingNumbers(int input1, int input2) {
-        int tmp, count, max, i ;
+        int tmp, count, max, i;
         int decimalUnitForSplit, decimalUnitForNext;
 
         max = countOfDigits(input1) - countOfDigits(input2);
         decimalUnitForSplit = tenPowerOf(max);
-        decimalUnitForNext = tenPowerOf(countOfDigits(input1)-1);
+        decimalUnitForNext = tenPowerOf(countOfDigits(input1) - 1);
 
         i = 0;
         count = 0;
@@ -92,10 +120,10 @@ public class ProjectMain {
         return count;
     }
 
-    static int tenPowerOf(int N){
-        if( N == 0 )
+    static int tenPowerOf(int N) {
+        if (N == 0)
             return 1;
 
-        return tenPowerOf(N-1) * 10;
+        return tenPowerOf(N - 1) * 10;
     }
 }
