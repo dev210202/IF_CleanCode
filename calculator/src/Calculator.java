@@ -9,34 +9,35 @@ public class Calculator {
 
     public static void main(String[] args) {
 
-        result += getNumber();
+        getNumber();
+        result = num;
 
         while (true) {
             operator = getOperator();
             if (operator.equals("="))
-            {
-                if ((int) result == result)
-                    System.out.println("= "+(int)result);
-                else
-                    System.out.println("= "+ result);
-            }
+                printResult();
             else {
-                num = getNumber();
+                getNumber();
                 updateResult(operator, num);
             }
         }
     }
 
-    public static double getNumber() {
+    public static void getNumber() {
         System.out.print("Enter a number: ");
-        return input.nextDouble();
+        num =  input.nextDouble();
     }
 
     public static String getOperator() {
         System.out.print("Enter an operator: ");
         return input.next();
     }
-
+    public static void printResult() {
+        if ((int) result == result)
+            System.out.println((int)result);
+        else
+            System.out.println(result);
+    }
     public static void updateResult(String op, double newNum) {
 
         switch (op) {
