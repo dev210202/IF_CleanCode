@@ -1,105 +1,80 @@
 import java.util.Scanner;
 
 public class Calculator {
-    public static void main(String[] args) {
-        getTwoNumbers();
-        getOperator();
-        printResult();
-    }
 
     public static Scanner input = new Scanner(System.in);
-    public static int firstNum;
-    public static int secondNum;
+    public static double result = 0;
     public static String operator;
+    public static double num;
 
-    public static void getTwoNumbers() {
-        System.out.print("값을 2개 입력하세요: ");
-        firstNum = input.nextInt();
-        secondNum = input.nextInt();
+    public static void main(String[] args) {
+
+        result += getNumber();
+
+        while (true) {
+            operator = getOperator();
+            if (operator.equals("="))
+            {
+                if ((int) result == result)
+                    System.out.println("= "+(int)result);
+                else
+                    System.out.println("= "+ result);
+            }
+            else {
+                num = getNumber();
+                updateResult(operator, num);
+            }
+        }
     }
 
-    public static void getOperator() {
-        System.out.println("연산자 목록 (더하기: + , 빼기: - , 곱하기: * , 나누기: / , 카운트: ? , 배수확인: @ )");
-        System.out.print("연산자를 입력하세요: ");
-        operator = input.next();
+    public static double getNumber() {
+        System.out.print("Enter a number: ");
+        return input.nextDouble();
     }
 
-    public static void printResult() {
-        switch (operator) {
+    public static String getOperator() {
+        System.out.print("Enter an operator: ");
+        return input.next();
+    }
+
+    public static void updateResult(String op, double newNum) {
+
+        switch (op) {
+            case "=":
+                break;
             case "+":
-                add();
+                add(newNum);
                 break;
             case "-":
-                subtract();
+                subtract(newNum);
                 break;
             case "*":
-                multiply();
+                multiply(newNum);
                 break;
             case "/":
-                divide();
+                divide(newNum);
                 break;
-            case "?":
-                getCountOfBInA();
-                break;
-            case "@":
-                isItMultiple();
-                break;
-        }
-    }
-
-    public static void add() {
-        System.out.println("더하기 결과: " + (firstNum + secondNum));
-    }
-
-    public static void subtract() {
-        System.out.println("빼기 결과: " + (firstNum - secondNum));
-    }
-
-    public static void multiply() {
-        System.out.println("곱하기 결과: " + (firstNum * secondNum));
-    }
-
-    public static void divide() {
-        if ((double) firstNum / secondNum == firstNum / secondNum)
-            System.out.println("나누기 결과: " + (firstNum / secondNum));
-        else
-            System.out.println("나누기 결과: " + ((double) firstNum / secondNum));
-    }
-
-    public static void getCountOfBInA() {
-
-        int A = firstNum;
-        int B = secondNum;
-        int digitOfB = 0;
-        int cntOfBInA = 0;
-        int multiply10digitTimes = 1;
-
-        while (B > 0) {
-            digitOfB++;
-            B = B / 10;
+            default:
+                System.out.println("Wrong Operator");
         }
 
-        while (digitOfB > 0) {
-            multiply10digitTimes = multiply10digitTimes * 10;
-            digitOfB--;
-        }
-
-        while (A > 0) {
-            if (A % multiply10digitTimes == secondNum)
-                cntOfBInA++;
-            A = A / 10;
-        }
-
-        System.out.println("카운트 결과: " + cntOfBInA);
     }
 
-    public static void isItMultiple() {
-        if (firstNum % secondNum == 0)
-            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수이다.");
-        else
-            System.out.println("첫번째 입력한 수가 두번째 입력한 수의 배수가 아니다.");
+    public static void add(double a) {
+        result = result + a;
     }
 
+    public static void subtract(double a) {
+        result = result - a;
+    }
+
+    public static void multiply(double a) {
+        result = result * a;
+    }
+
+    public static void divide(double a) {
+        result = result / a;
+    }
 
 }
 
