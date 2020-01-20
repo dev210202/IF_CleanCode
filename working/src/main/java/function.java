@@ -7,16 +7,16 @@ public class function implements function_interface {
 
         Scanner sc = new Scanner(System.in);
 
-        float calculateValue;
+        float calculateValue, input1, input2;
         String newOperator;
-
         int inputINT1, inputINT2;
+
         inputINT1 = sc.nextInt();
+        String originalOperator = sc.next();
         inputINT2 = sc.nextInt();
 
-        float input1 = (float) inputINT1;
-        String originalOperator = sc.next();
-        float input2 = (float) inputINT2;
+        input1 = (float) inputINT1;
+        input2 = (float) inputINT2;
 
         while (true) {
             calculateValue = calculate(input1, input2, originalOperator);
