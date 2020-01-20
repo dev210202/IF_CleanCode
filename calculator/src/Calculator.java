@@ -1,81 +1,111 @@
 import java.util.Scanner;
+interface Calculatable {
 
-public class Calculator {
+    public double add(double a, double b);
 
-    public static Scanner input = new Scanner(System.in);
-    public static double result = 0;
-    public static String operator;
-    public static double num;
+    public double subtract(double a, double b);
 
-    public static void main(String[] args) {
+    public double multiply(double a, double b);
 
-        getNumber();
-        result = num;
+    public double divide(double a, double b);
+}
 
-        while (true) {
-            operator = getOperator();
-            if (operator.equals("="))
-                printResult();
-            else {
-                getNumber();
-                updateResult(operator, num);
-            }
-        }
+interface Gettable {
+
+    public double getNumber(Scanner input);
+
+    String getOperator(Scanner input);
+
+    public void printResult(double a);
+
+    public double updateResult(Calculator c, String op, double a, double b);
+}
+
+
+class CalculatorClass implements Calculatable, Gettable{
+
+    public double add(double a, double b) {
+        return a + b;
     }
 
-    public static void getNumber() {
+    public double subtract(double a, double b) {
+        return a - b;
+    }
+
+    public double multiply(double a, double b) {
+        return a * b;
+    }
+
+    public double divide(double a, double b) {
+        return a / b;
+    }
+
+    public double getNumber(Scanner input) {
         System.out.print("Enter a number: ");
-        num =  input.nextDouble();
+        return input.nextDouble();
     }
 
-    public static String getOperator() {
+    public String getOperator(Scanner input) {
         System.out.print("Enter an operator: ");
         return input.next();
     }
-    public static void printResult() {
-        if ((int) result == result)
-            System.out.println((int)result);
-        else
-            System.out.println(result);
-    }
-    public static void updateResult(String op, double newNum) {
 
+    public void printResult(double a) {
+        if ((int) a == a)
+            System.out.println((int) a);
+        else
+            System.out.println(a);
+    }
+
+    public double updateResult(Calculator c, String op, double result, double a) {
+
+        double localResult = result;
         switch (op) {
             case "=":
                 break;
             case "+":
-                add(newNum);
+                localResult = c.add(result, a);
                 break;
             case "-":
-                subtract(newNum);
+                localResult = c.subtract(result, a);
                 break;
             case "*":
-                multiply(newNum);
+                localResult = c.multiply(result, a);
                 break;
             case "/":
-                divide(newNum);
+                localResult = c.divide(result, a);
                 break;
             default:
                 System.out.println("Wrong Operator");
         }
-
+        return localResult;
     }
-
-    public static void add(double a) {
-        result = result + a;
-    }
-
-    public static void subtract(double a) {
-        result = result - a;
-    }
-
-    public static void multiply(double a) {
-        result = result * a;
-    }
-
-    public static void divide(double a) {
-        result = result / a;
-    }
-
 }
 
+public class Calculator extends CalculatorClass {
+
+    public static double result = 0;
+    public static void main(String[] args) {
+
+        Calculator c = new Calculator();
+        Scanner input = new Scanner(System.in);
+
+        String operator;
+        double num;
+
+        num = c.getNumber(input);
+        result += num;
+
+        while (true) {
+            operator = c.getOperator(input);
+
+            if (operator.equals("=")) {
+                c.printResult(result);
+            }
+            else {
+                num = c.getNumber(input);
+                result = c.updateResult(c, operator, result, num);
+            }
+        }
+    }
+}
