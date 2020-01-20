@@ -72,11 +72,12 @@ custom기능 사라짐..
 굳이 특화시키지 않아도되는 내용은 추상클래스로 만들어 상속시키고 각 기능들은 interface로 상속, 구현해서 코드 읽을 때 상속도?를 이해하는데 좋았음
 main에 왜 Calculator 클래스(자기자신)을 한번더 생성했는가? 혹시 부모 클래스의 메소드를 쓰기 위해서라면 super.getNumber이런식으로 그냥 갖다 써도 되지않나?(에러나나?)  
 함수 : getNumber(Scanner input) - Scanner를 파라미터로 넣어 처리하는게 신박했음. 그런데 피연산자로 nextDouble로 받아서 정수로 받으라는 조건과 맞지 않은듯..?  
+```java
 CalculatorClass <-상속- Gettable 의 updateResult(Calculator,..)  
    ↘                      ↗  
     상속              변수(?)  
        ↘ Calculator ↗  
-
+```
 상속 관계가 잘 이해되지 않음..  
 -> 메인함수 클래스, Calculator 클래스를 구분하는게 더 좋을 것 같음  
 
@@ -88,7 +89,7 @@ x, y 라는 변수는 뭔가 그래프의 느낌을 주는듯, 변수명을 oper
 @override라는걸로 인터페이스의 함수를 오버라이딩했다는걸 명시해 주는 것이 좋았음  
 인터페이스의 메소드가 전반적으로 너무 많음.   
 ```java
-	double custom(int a, int b);
+    double custom(int a, int b);
     double custom(int a, double b);
     double custom(double a, int b);
     double custom(double a, double b);
