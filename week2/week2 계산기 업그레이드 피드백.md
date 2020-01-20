@@ -28,11 +28,9 @@ calculateFirstTime안에 있는 scanAferFirstOpernd를 그냥 calculateAfterFirs
  
 # 하늬
 ### 근우 Comment : 
-메인이 깔끔하다는 생각이 듬, 하지만 calculate와 print로 분리해도 괜찮다는 생각이 듬.(1메소드1기능)
-float =>double로 바꾸었으면 하는 생각이 있음
-(이유 : double이 더 소수점 오차가 적고 요즘 컴퓨터가 좋아서 4바이트 정도의 크기는 마음껏 할당해도 괜찮을거 같음
-float : 4byte, double : 8byte)
-인터페이스 이름이 function_interface 말고 더 괜찮은 인터페이스 이름으로 지엇으면 하는 바람이 있음. 이름에 자료형이 들어가면 안좋다는 걸 어디서 본거같음(사실 나도 더 나은 이름을 모르겠음)
+메인이 깔끔하다는 생각이 듬, 하지만 calculate와 print로 분리해도 괜찮다는 생각이 듬.(1메소드1기능)  
+float =>double로 바꾸었으면 하는 생각이 있음(이유 : double이 더 소수점 오차가 적고 요즘 컴퓨터가 좋아서 4바이트 정도의 크기는 마음껏 할당해도 괜찮을거 같음 float : 4byte, double : 8byte)  
+인터페이스 이름이 function_interface 말고 더 괜찮은 인터페이스 이름으로 지엇으면 하는 바람이 있음. 이름에 자료형이 들어가면 안좋다는 걸 어디서 본거같음(사실 나도 더 나은 이름을 모르겠음)  
 
 ### 이식 Comment : 
 메인에서 function객체만을 사용해서 작동하는 방식이 좋았음  
@@ -43,9 +41,9 @@ function_interface는 스네이크 표기법인데 카멜로 고치는게..?
 사용자에게 입력받은 숫자를 float형으로 바꿔서 사용하는데 원래는 메소드 오버로딩을 이용해서 짜는걸 의도했음  
 
 ### 현주 Comment : 
-메인 깔끔해서 소름돋았음;
-변수 float calculateValue: 메소드를 동사로 하기로 했으니까 명사가 낫지않을까? calculatedValue 라던가
-Int를 받아서 float으로 변환하던데, 그냥 float으로 받아도 되지 않을까
+메인 깔끔해서 소름돋았음;  
+변수 float calculateValue: 메소드를 동사로 하기로 했으니까 명사가 낫지않을까? calculatedValue 라던가  
+Int를 받아서 float으로 변환하던데, 그냥 float으로 받아도 되지 않을까  
  
 # 현주
 ### 근우 Comment : 
@@ -69,7 +67,7 @@ custom기능 사라짐..
 
 
 ### 하늬 Comment :
-굳이 특화시키지 않아도되는 내용은 추상클래스로 만들어 상속시키고 각 기능들은 interface로 상속, 구현해서 코드 읽을 때 상속도?를 이해하는데 좋았음
+굳이 특화시키지 않아도되는 내용은 추상클래스로 만들어 상속시키고 각 기능들은 interface로 상속, 구현해서 코드 읽을 때 상속도?를 이해하는데 좋았음  
 main에 왜 Calculator 클래스(자기자신)을 한번더 생성했는가? 혹시 부모 클래스의 메소드를 쓰기 위해서라면 super.getNumber이런식으로 그냥 갖다 써도 되지않나?(에러나나?)  
 함수 : getNumber(Scanner input) - Scanner를 파라미터로 넣어 처리하는게 신박했음. 그런데 피연산자로 nextDouble로 받아서 정수로 받으라는 조건과 맞지 않은듯..?  
 ```java
