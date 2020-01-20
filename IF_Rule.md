@@ -1,6 +1,6 @@
 IF CleanCode Rule
 
-# Week1
+# Rule
 1. bool타입 함수는 시작이름을 is, has로 시작한다
 2. camel표기법 사용(isOdd, inThisCase 등등)
 3. 무엇인가를 의미하는 상수는 static final을 쓰고 대문자로 표시하고 단어별로 나눌 때 언더바를 사용한다.  
