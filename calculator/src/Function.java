@@ -9,36 +9,24 @@ public class Function implements CalculatorInterface {
 
     Scanner input = new Scanner(System.in);
 
-    public void setOperand1(double operand1){
-        this.operand1 = operand1;
+    public void setOperand1() {
+        this.operand1 = input.nextDouble();
     }
 
-    public void setOperand2(double operand2){
-        this.operand2 = operand2;
+    public void setOperand2() {
+        this.operand2 = input.nextDouble();
     }
 
-    public void setOperator(String operator){
-        this.operator = operator;
+    public void setOperator() {
+        this.operator = input.next();
     }
 
-    public void setResult(double result){
-        this.result = result;
+    public void setResultAsOperand1() {
+        this.result = operand1;
     }
 
-    public double getOperand1(){
-        return operand1;
-    }
-
-    public double getOperand2(){
-        return operand2;
-    }
-
-    public String getOperator(){
+    public String getOperator() {
         return operator;
-    }
-
-    public double getResult(){
-        return result;
     }
 
     public double add(double a, double b) {
@@ -65,7 +53,7 @@ public class Function implements CalculatorInterface {
         int cntOfBInA = 0;
         int multiply10digitTimes = 1;
 
-        if ( !(isItInteger(a) && isItInteger(b))) {
+        if (!(isItInteger(a) && isItInteger(b))) {
             System.out.println("Can't count because it's not integer.");
             // Error throw
         }
@@ -90,14 +78,6 @@ public class Function implements CalculatorInterface {
         return cntOfBInA;
     }
 
-    public void messageGetNumber() {
-        System.out.print("Enter a number: ");
-    }
-
-    public void messageGetOperator() {
-        System.out.print("Enter an operator: ");
-    }
-
     public void printResult() {
         if (isItInteger(result))
             System.out.println((int) result);
@@ -106,38 +86,31 @@ public class Function implements CalculatorInterface {
     }
 
     public boolean isItInteger(double a) {
-        if ((int) a == a) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return a == (int) a;
     }
 
-    public double updateResult(String op, double result, double a) {
+    public void setResultUpdated() {
 
-        double localResult = result;
-        switch (op) {
+        switch (operator) {
             case "=":
                 break;
             case "+":
-                localResult = add(result, a);
+                this.result = add(result, operand2);
                 break;
             case "-":
-                localResult = subtract(result, a);
+                this.result = subtract(result, operand2);
                 break;
             case "*":
-                localResult = multiply(result, a);
+                this.result = multiply(result, operand2);
                 break;
             case "/":
-                localResult = divide(result, a);
+                this.result = divide(result, operand2);
                 break;
             case "?":
-                localResult = getCountOfBInA(result, a);
+                this.result = getCountOfBInA(result, operand2);
                 break;
             default:
                 System.out.println("Wrong Operator");
         }
-        return localResult;
     }
 }
