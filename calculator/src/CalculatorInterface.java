@@ -13,11 +13,11 @@ public interface CalculatorInterface {
 
     void messageGetOperator();
 
-    double getNumber(Scanner input);
+//    double getNumber(Scanner input);
+//
+//    String getOperator(Scanner input);
 
-    String getOperator(Scanner input);
-
-    void printResult(double a);
+    void printResult();
 
     double updateResult(String op, double a, double b);
 }
