@@ -45,7 +45,7 @@ public class Function implements CalculatorInterface {
         return a / b;
     }
 
-    public double getCountOfBInA(double a, double b) {
+    public double getCountOfBInA(double a, double b){
 
         int A = (int) a;
         int B = (int) b;
@@ -55,7 +55,7 @@ public class Function implements CalculatorInterface {
 
         if (!(isItInteger(a) && isItInteger(b))) {
             System.out.println("Can't count because it's not integer.");
-            // Error throw
+            // should throw an error
         }
 
         while (B > 0) {
@@ -92,8 +92,6 @@ public class Function implements CalculatorInterface {
     public void setResultUpdated() {
 
         switch (operator) {
-            case "=":
-                break;
             case "+":
                 this.result = add(result, operand2);
                 break;
@@ -112,5 +110,14 @@ public class Function implements CalculatorInterface {
             default:
                 System.out.println("Wrong Operator");
         }
+    }
+
+    public void exampleMessage(){
+        System.out.println("+ : addition , - : subtraction , * : multiplication , / : division, ? : count, q : quit");
+        System.out.println("Please enter as an example below.");
+        System.out.println("1 + 2 + 3 =");
+        System.out.println("6");
+        System.out.println("* 2 =");
+        System.out.println("12");
     }
 }
