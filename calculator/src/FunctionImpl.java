@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Function implements CalculatorInterface {
+public class FunctionImpl implements CalculatorInterface {
 
     private double operand1;
     private double operand2;
@@ -47,22 +47,22 @@ public class Function implements CalculatorInterface {
 
     public double getCountOfBInA(double a, double b){
 
-        int A = (int) a;
-        int B = (int) b;
+        int A = (int)a;
+        int B = (int)b;
         int digitOfB = 0;
         int cntOfBInA = 0;
         int multiply10digitTimes = 1;
 
-        if (!(isItInteger(a) && isItInteger(b))) {
+        if (!(isInteger(a) && isInteger(b))) {
             System.out.println("Can't count because it's not integer.");
-            // should throw an error
+            System.out.println("Count will be returned as 0");
         }
 
         while (B > 0) {
             digitOfB++;
             B = B / 10;
         }
-        B = (int) b;
+        B =  (int)b;
 
         while (digitOfB > 0) {
             multiply10digitTimes = multiply10digitTimes * 10;
@@ -79,13 +79,13 @@ public class Function implements CalculatorInterface {
     }
 
     public void printResult() {
-        if (isItInteger(result))
+        if (isInteger(result))
             System.out.println((int) result);
         else
             System.out.println(result);
     }
 
-    public boolean isItInteger(double a) {
+    public boolean isInteger(double a) {
         return a == (int) a;
     }
 
@@ -112,7 +112,7 @@ public class Function implements CalculatorInterface {
         }
     }
 
-    public void exampleMessage(){
+    public void showExample(){
         System.out.println("+ : addition , - : subtraction , * : multiplication , / : division, ? : count, q : quit");
         System.out.println("Please enter as an example below.");
         System.out.println("1 + 2 + 3 =");

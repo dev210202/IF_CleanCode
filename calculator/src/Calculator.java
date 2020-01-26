@@ -1,32 +1,30 @@
-public class Calculator extends Function {
+public class Calculator extends FunctionImpl {
 
     public static void main(String[] args) {
 
-        Function f = new Function();
+        FunctionImpl f = new FunctionImpl();
 
-        f.exampleMessage();
+        f.showExample();
+
         f.setOperand1();
         f.setResultAsOperand1();
 
         while (true) {
+
             f.setOperator();
 
             String op = f.getOperator();
-            if (op.equals("q") || op.equals("Q")) {
-                System.out.println("Quit Calculator");
+            if (op.equals("q")) {
+                System.out.println("Quit");
                 break;
             }
             else if (op.equals("=")) {
                 f.printResult();
             }
-            else if (op.equals("+") || op.equals("-") || op.equals("*") || op.equals("/") || op.equals("?")){
-                f.setOperand2();
-                f.setResultUpdated();
-            }
             else
             {
-                System.out.println("Wrong Operator");
-                break;
+                f.setOperand2();
+                f.setResultUpdated();
             }
         }
     }

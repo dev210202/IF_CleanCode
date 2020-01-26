@@ -7,4 +7,6 @@ public interface CalculatorInterface {
     double multiply(double a, double b);
 
     double divide(double a, double b);
+
+    double getCountOfBInA(double a, double b);
 }
