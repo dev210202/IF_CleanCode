@@ -1,48 +1,44 @@
 import java.util.Scanner;
 
-public class function implements function_interface {
+public class FunctionImpl implements Function {
 
-    @Override
-    public void calculateAndPrint() {
+    CalculateDto calc = new CalculateDto();
+
+    public FunctionImpl() {
 
         Scanner sc = new Scanner(System.in);
 
-        float calculateValue, input1, input2;
-        String newOperator;
-        int inputINT1, inputINT2;
-
-        inputINT1 = sc.nextInt();
-        String originalOperator = sc.next();
-        inputINT2 = sc.nextInt();
-
-        input1 = (float) inputINT1;
-        input2 = (float) inputINT2;
+        calc.setInput1(sc.nextInt());
+        calc.setOriginOperator(sc.next());
+        calc.setInput2(sc.nextInt());
 
         while (true) {
-            calculateValue = calculate(input1, input2, originalOperator);
+            double calculatedValue = calculate(
+                    calc.getInput1(), calc.getInput2(), calc.getOriginOperator());
 
-            newOperator = sc.next();
+            calc.setCalculatedValue(calculatedValue);
 
-            if (newOperator.equals("=")) {
-                System.out.println(calculateValue);
+            calc.setNewOperator(sc.next());
 
-            } else if (newOperator.equals("quit")) {    // 종료문 quit으로 설정
+            if (calc.getNewOperator().equals("=")) {
+                System.out.println(calculatedValue);
+
+            } else if (calc.getNewOperator().equals("quit")) {    // 종료문 quit으로 설정
                 System.out.println("Calculation is ended....");
                 return;
 
             } else {
-                inputINT2 = sc.nextInt();
-                input2 = (float)inputINT2;
-                originalOperator= newOperator;
-                input1 = calculateValue;
+                calc.setInput2(sc.nextInt());
+                calc.setOriginOperator(calc.getNewOperator());
+                calc.setInput1(calculatedValue);
             }
 
         }
     }
 
     @Override
-    public float calculate(float input1, float input2, String operator) {
-        float result = 0f;
+    public double calculate(double input1, double input2, String operator) {
+        double result = 0;
 
         if (operator.equals("+")) {
             result = add(input1, input2);
@@ -61,22 +57,22 @@ public class function implements function_interface {
     }
 
     @Override
-    public float add(float input1, float input2) {
+    public double add(double input1, double input2) {
         return input1 + input2;
     }
 
     @Override
-    public float substract(float input1, float input2) {
+    public double substract(double input1, double input2) {
         return input1 - input2;
     }
 
     @Override
-    public float multiply(float input1, float input2) {
+    public double multiply(double input1, double input2) {
         return input1 * input2;
     }
 
     @Override
-    public float divide(float input1, float input2) {
+    public double divide(double input1, double input2) {
         return input1 / input2;
     }
 
@@ -108,7 +104,7 @@ public class function implements function_interface {
 
     // custom - 나머지값 구하기
     @Override
-    public float mod(float input1, float input2) {
+    public double mod(double input1, double input2) {
         return input1 % input2;
     }
 
