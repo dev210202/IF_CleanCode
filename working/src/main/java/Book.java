@@ -29,7 +29,7 @@ public class Book {
 
     @Override
     public String toString() {
-        return "Book info [title:" + this.title + ", publicationDate:" +
+        return "Book info [title:" + this.title + ", date:" +
                 this.date + ", author:" + this.author + "]";
     }
 }
