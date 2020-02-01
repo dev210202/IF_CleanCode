@@ -7,7 +7,7 @@ public interface Librarian {
 
     void removeBook(Book book, ArrayList<Book> bookList);
 
-    void reviseBook(Book book, Book userBook, ArrayList<Book> bookList);
+    void reviseBook(Book book, Book userBook);
 
     void printBookInfo(Book book);
 }

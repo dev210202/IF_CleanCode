@@ -2,20 +2,22 @@ public class Main {
 
     public static void main(String[] args) {
         Library library = new Library();
+        LibrarianImpl librarianImpl = new LibrarianImpl();
         User user = new User();
 
         while (true) {
-            switch (user.inputOrder()) {
+            switch (user.input()) {
+
                 case "search":
-                    library.searchBook(user);
+                    librarianImpl.searchBook(user, library.getBookList());
                     break;
 
                 case "insert":
-                    library.insertBook(user);
+                    librarianImpl.insertBook(user, library.getBookList());
                     break;
 
                 case "delete":
-                    library.deleteBook(user);
+                    librarianImpl.deleteBook(user, library.getBookList());
                     break;
 
                 case "quit":

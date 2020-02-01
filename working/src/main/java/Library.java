@@ -3,40 +3,35 @@ import java.util.ArrayList;
 public class Library {
 
     ArrayList<Book> bookList = new ArrayList<>();
-    LibrarianImpl librarianImpl = new LibrarianImpl();
 
+    private Book oldFuture = new Book();
+    private Book dataStructure = new Book();
+    private Book mind = new Book();
+    private Book redAndBlack = new Book();
 
-    public void searchBook(User user) {
-        try {
-            Book targetBook = librarianImpl.findBookByTitle(user.inputTitle(), bookList);
+    public Library() {
+        oldFuture.setTitle("오래된 미래");
+        oldFuture.setAuthor("헬레나");
+        oldFuture.setDate("1991");
+        bookList.add(oldFuture);
 
-            librarianImpl.printBookInfo(targetBook);
+        dataStructure.setTitle("데이터구조론");
+        dataStructure.setAuthor("국형준");
+        dataStructure.setDate("2012");
+        bookList.add(dataStructure);
 
-            System.out.println("출력되었습니다.");
+        mind.setTitle("마음");
+        mind.setAuthor("나쓰메");
+        mind.setDate("1914");
+        bookList.add(mind);
 
-        } catch (NullPointerException npe) {
-            System.out.println("일치하는 책이 없습니다.");
-        }
+        redAndBlack.setTitle("적과 흑");
+        redAndBlack.setAuthor("스탕달");
+        redAndBlack.setDate("1830");
+        bookList.add(redAndBlack);
     }
 
-    public void insertBook(User user) {
-        Book book = user.createBook();
-
-        librarianImpl.addBook(book, bookList);
-
-        System.out.println("추가되었습니다.");
-    }
-
-    public void deleteBook(User user) {
-        try {
-            Book targetBook = librarianImpl.findBookByTitle(user.inputTitle(), bookList);
-
-            librarianImpl.removeBook(targetBook, bookList);
-
-            System.out.println("제거되었습니다.");
-
-        } catch (NullPointerException npe) {
-            System.out.println("제거할 책이 존재하지 않습니다.");
-        }
+    public ArrayList<Book> getBookList() {
+        return bookList;
     }
 }

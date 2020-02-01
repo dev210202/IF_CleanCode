@@ -1,10 +1,10 @@
 public class Book {
-    String title;
-    Double publicationDate;
-    String author;
+    private String title;
+    private String author;
+    private String date;
 
     public String getTitle() {
-        return this.title;
+        return title;
     }
 
     public void setTitle(String title) {
@@ -12,24 +12,24 @@ public class Book {
     }
 
     public String getAuthor() {
-        return this.author;
+        return author;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public Double getPublicationDate() {
-        return this.publicationDate;
+    public String getDate() {
+        return date;
     }
 
-    public void setPublicationDate(Double publicationDate) {
-        this.publicationDate = publicationDate;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
     public String toString() {
         return "Book info [title:" + this.title + ", publicationDate:" +
-                this.publicationDate + ", author:" + this.author+"]";
+                this.date + ", author:" + this.author + "]";
     }
 }

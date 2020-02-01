@@ -1,20 +1,10 @@
 import java.util.Scanner;
 
 public class User {
-    Scanner sc;
+    Scanner sc = new Scanner(System.in);
 
-    public User() {
-        sc = new Scanner(System.in);
-    }
-
-    public String inputOrder() {
-        System.out.println("search/insert/delete/quit 중 수행하세요.");
-        return sc.next();
-    }
-
-    public String inputTitle() {
-        System.out.println("찾을 책의 제목을 입력하세요 : ");
-        return sc.next();
+    public boolean isEntered() {
+        return sc.hasNext();
     }
 
     public Book createBook() {
@@ -27,8 +17,19 @@ public class User {
         book.setAuthor(sc.next());
 
         System.out.print("출간일을 입력하세요 : ");
-        book.setPublicationDate(sc.nextDouble());
+        book.setDate(sc.next());
 
         return book;
+    }
+
+    public String input() {
+        System.out.println("search/insert/delete/quit 중 수행하세요.");
+        return sc.next();
+    }
+
+    public String inputTitle() {
+        sc.nextLine();
+        System.out.println("찾을 책의 제목을 입력하세요 : ");
+        return sc.nextLine();
     }
 }
