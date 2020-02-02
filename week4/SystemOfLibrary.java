@@ -6,11 +6,12 @@ public class SystemOfLibrary {
         Library library = new Library();
         LibrarianImpl librarianImpl = new LibrarianImpl();
         User user = new User();
+        Book bookFoundByTitle;
 
         while (true) {
             switch (user.input()) {
                 case "제목으로 찾기":
-                    Book bookFoundByTitle = librarianImpl.findBookByTitle(user.inputTitle(), library.getBookList());
+                    bookFoundByTitle = librarianImpl.findBookByTitle(user.inputTitle(), library.getBookList());
                     if (bookFoundByTitle != null) {
                         librarianImpl.printBookInfo(bookFoundByTitle);
                         System.out.println("출력 되었습니다.");
@@ -26,9 +27,9 @@ public class SystemOfLibrary {
                     break;
 
                 case "책 제거":
-                    Book foundBook = librarianImpl.findBookByTitle(user.inputTitle(), library.getBookList());
-                    if(foundBook != null) {
-                        librarianImpl.removeBook(foundBook, library.getBookList());
+                    bookFoundByTitle = librarianImpl.findBookByTitle(user.inputTitle(), library.getBookList());
+                    if(bookFoundByTitle != null) {
+                        librarianImpl.removeBook(bookFoundByTitle, library.getBookList());
                         System.out.println("제거 되었습니다.");
                     }
                     else {
@@ -36,6 +37,17 @@ public class SystemOfLibrary {
                     }
                     break;
 
+                case "책 수정" :
+                   String title = user.inputTitle();
+                   bookFoundByTitle = librarianImpl.findBookByTitle(title, library.getBookList());
+                    if (bookFoundByTitle != null) {
+                        Book tempBookForFix = user.createBook();
+                        librarianImpl.reviseBook(bookFoundByTitle, tempBookForFix);
+                        System.out.println("수정 되었습니다.");
+                    } else {
+                        System.out.println("수정할 책이 존재하지 않습니다.");
+                    }
+                    break;
 
                 case "종료":
                     System.out.println("시스템이 종료되었습니다.");
