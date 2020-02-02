@@ -14,26 +14,6 @@ public class LibrarianImpl implements Librarian {
         return null;
     }
 
-    public Book findBookByAuthor(String author, ArrayList<Book> bookList) {
-
-        for (Book book : bookList){
-            if (book.getAuthor().equals(author)) {
-                return book;
-            }
-        }
-        return null;
-    }
-
-    public Book findBookByDate(String date, ArrayList<Book> bookList) {
-
-        for (Book book : bookList){
-            if (book.getDate().equals(date)) {
-                return book;
-            }
-        }
-        return null;
-    }
-
     public void printBookInfo(Book book) {
         System.out.println("Title: " + book.getTitle() +", Author: "+ book.getAuthor() + ", Date: "+ book.getDate());
     }

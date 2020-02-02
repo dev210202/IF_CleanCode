@@ -24,30 +24,6 @@ public class Main {
                     }
                     break;
                 }
-                case "저자로 찾기" :{
-                    Book bookFounded;
-                    bookFounded = librarianimpl.findBookByAuthor(user.inputAuthor(), library.getBookList());
-                    if (bookFounded == null) {
-                        System.out.println("일치하는 책이 없습니다.");
-                    }
-                    else{
-                        librarianimpl.printBookInfo(bookFounded);
-                        System.out.println("출력되었습니다");
-                    }
-                    break;
-                }
-                case "날짜로 찾기" :{
-                    Book bookFounded;
-                    bookFounded = librarianimpl.findBookByDate(user.inputDate(), library.getBookList());
-                    if (bookFounded == null) {
-                        System.out.println("일치하는 책이 없습니다.");
-                    }
-                    else{
-                        librarianimpl.printBookInfo(bookFounded);
-                        System.out.println("출력되었습니다");
-                    }
-                    break;
-                }
                 case "책 추가":{
                     librarianimpl.addBook(user.createBook(), library.getBookList());
                     System.out.println("추가되었습니다.");

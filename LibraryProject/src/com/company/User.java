@@ -17,16 +17,6 @@ public class User {
         return sc.nextLine();
     }
 
-    public String inputAuthor() {
-        System.out.print("Enter Author: ");
-        return sc.nextLine();
-    }
-
-    public String inputDate() {
-        System.out.print("Enter Date: ");
-        return sc.nextLine();
-    }
-
     public Book createBook() {
         Book book = new Book();
 
