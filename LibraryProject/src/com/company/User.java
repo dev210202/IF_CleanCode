@@ -7,7 +7,7 @@ public class User {
     private Scanner sc = new Scanner(System.in);
 
     String inputMenu() {
-        System.out.println("Menu : '제목으로 찾기', '저자로 찾기', '날짜로 찾기', '책 추가', '책 제거', '책 수정', '종료'");
+        System.out.println("Menu : '제목으로 찾기', '책 추가', '책 제거', '책 수정', '종료'");
         System.out.print("Enter Menu : ");
         return sc.nextLine();
     }
