@@ -26,6 +26,6 @@ IF_Rule.md를 통해 정해진 규칙들을 보실 수 있습니다.
 스터디 멤버
 -------------
 주이식  [jkey20](https://github.com/jkey20)  
-강근우  [Moai-Kang](https://github.com/Moai-Kang)  
+강근우  [moaikang](https://github.com/moaikang)  
 김하늬  [kimhanui](https://github.com/kimhanui)  
 이현주  [alro923](https://github.com/alro923)  
